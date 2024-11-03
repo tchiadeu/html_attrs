@@ -121,4 +121,10 @@ class Hash
   def smart_merge_all(target)
     as_html_attrs.smart_merge_all(target)
   end
+
+  class String
+    def smart_merge(target)
+      HtmlAttrs.smart_merge(self, target, mergeable_attributes: HtmlAttrs::DEFAULT_MERGEABLE_ATTRIBUTES)
+    end
+  end
 end
